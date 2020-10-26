@@ -7,22 +7,29 @@ let refund = '';
 
 function giveAloan(){
   amount = +prompt('Please enter the amount you want to take (from 5000 to 100000): ');
-  if (amount === 0) {
-    return;
-  }
+  
   while (amount < 5000 || amount > 100000) {
+    if (amount === 0) {
+      return;
+    }
     alert ('We cannot give a loan for such an amount, please enter a different amount!')
     amount = +prompt('Please enter the amount you want to take (from 5000 to 100000): ');
   }
   
   period = +prompt('Please enter a period (from 1 month to 36 months): ');
   
-  while (period < 1 || period > 36){
+  while (period > 36 || period < 1){
+    if (period === 0) {
+      return;
+    }
     alert ('We cannot give a loan for such a period, please enter a different period!')
     period = +prompt('Please enter a period (from 1 month to 36 months): ');
   }
   
   salary = +prompt('Please, enter your salary: ', '');
+  if (salary === 0) {
+    return;
+  }
   
   if (amount >= 5000 && amount < 20000) {
     percent = 0.06;
